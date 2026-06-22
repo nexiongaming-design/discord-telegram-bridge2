@@ -368,7 +368,7 @@ async def main():
         .read_timeout(30.0) 
         .write_timeout(30.0) 
         .get_updates_read_timeout(30.0) 
-        .build() 
+        .build()
     ) 
 
     tg_bot_sender = tg_app.bot  
