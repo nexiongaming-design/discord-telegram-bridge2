@@ -3,6 +3,47 @@ name: Discloud Auto Deploy
 on:
   push:
     branches:
+      - main  # Change to master if your default branch is named master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # 1. Dynamically build the .env file using your configuration matrix
+      - name: Create .env file
+        run: |
+          echo "DISCORD_TOKEN=${{ secrets.DISCORD_TOKEN }}" >> .env
+          echo "TELEGRAM_TOKEN=${{ secrets.TELEGRAM_TOKEN }}" >> .env
+          echo "TELEGRAM_GROUP_ID=-100xxxxxx" >> .env
+          
+          echo "HERDS_SOURCE_CHANNEL_ID=your_id_here" >> .env
+          echo "HERDS_LISTEN_CHANNELS=your_ids_here" >> .env
+          echo "HERDS_TELEGRAM_TOPIC_ID=34" >> .env
+          
+          echo "NOTIF_SOURCE_CHANNEL_ID=your_id_here" >> .env
+          echo "NOTIF_LISTEN_CHANNELS=your_ids_here" >> .env
+          echo "NOTIF_TELEGRAM_TOPIC_ID=3" >> .env
+          
+          echo "SCHEDULE_SOURCE_CHANNEL_ID=your_id_here" >> .env
+          echo "SCHEDULE_LISTEN_CHANNELS=your_ids_here" >> .env
+          echo "SCHEDULE_TELEGRAM_TOPIC_ID=149" >> .env
+
+      # 2. Package everything into the zip file that Discloud is looking for
+      - name: Zip repository files
+        run: zip -r bot.zip . -x ".git/*" ".github/*"
+
+      # 3. Deliver the zip bundle to Discloud
+      - name: Deploy to Discloud
+        uses: discloud/deploy-action@v1
+        with:
+          token: ${{ secrets.DISCLOUD_TOKEN }}
+          file: bot.zipname: Discloud Auto Deploy
+
+on:
+  push:
+    branches:
       - main
 
 jobs:
