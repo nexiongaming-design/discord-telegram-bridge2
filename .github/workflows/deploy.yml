@@ -3,7 +3,7 @@ name: Discloud Auto Deploy
 on:
   push:
     branches:
-      - main  # Change to master if your default branch is master
+      - main
 
 jobs:
   deploy:
@@ -19,15 +19,12 @@ jobs:
             DISCORD_TOKEN=${{ secrets.DISCORD_TOKEN }}
             TELEGRAM_TOKEN=${{ secrets.TELEGRAM_TOKEN }}
             TELEGRAM_GROUP_ID=-100xxxxxx
-
-            HERDS_SOURCE_CHANNEL_ID=code here
-            HERDS_LISTEN_CHANNELS=code here
+            HERDS_SOURCE_CHANNEL_ID=your_id_here
+            HERDS_LISTEN_CHANNELS=your_ids_here
             HERDS_TELEGRAM_TOPIC_ID=34
-
-            NOTIF_SOURCE_CHANNEL_ID=code here
-            NOTIF_LISTEN_CHANNELS=code here
+            NOTIF_SOURCE_CHANNEL_ID=your_id_here
+            NOTIF_LISTEN_CHANNELS=your_ids_here
             NOTIF_TELEGRAM_TOPIC_ID=3
-
-            SCHEDULE_SOURCE_CHANNEL_ID=code here
-            SCHEDULE_LISTEN_CHANNELS=code here
+            SCHEDULE_SOURCE_CHANNEL_ID=your_id_here
+            SCHEDULE_LISTEN_CHANNELS=your_ids_here
             SCHEDULE_TELEGRAM_TOPIC_ID=149
