@@ -18,13 +18,13 @@ jobs:
           env: |
             DISCORD_TOKEN=${{ secrets.DISCORD_TOKEN }}
             TELEGRAM_TOKEN=${{ secrets.TELEGRAM_TOKEN }}
-            TELEGRAM_GROUP_ID=-100xxxxxx
+            TELEGRAM_GROUP_ID=your_id_here
             HERDS_SOURCE_CHANNEL_ID=your_id_here
             HERDS_LISTEN_CHANNELS=your_ids_here
-            HERDS_TELEGRAM_TOPIC_ID=34
+            HERDS_TELEGRAM_TOPIC_ID=your_id_here
             NOTIF_SOURCE_CHANNEL_ID=your_id_here
             NOTIF_LISTEN_CHANNELS=your_ids_here
-            NOTIF_TELEGRAM_TOPIC_ID=3
+            NOTIF_TELEGRAM_TOPIC_ID=your_id_here
             SCHEDULE_SOURCE_CHANNEL_ID=your_id_here
             SCHEDULE_LISTEN_CHANNELS=your_ids_here
-            SCHEDULE_TELEGRAM_TOPIC_ID=149
+            SCHEDULE_TELEGRAM_TOPIC_ID=your_id_here
