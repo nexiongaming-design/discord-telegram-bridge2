@@ -8,8 +8,8 @@ import asyncio
 import io 
 
 # --- 1. START THE DUMMY WEB SERVER --- 
-from keep_alive import keep_alive 
-keep_alive()  
+#from keep_alive import keep_alive 
+#keep_alive()  
 # ------------------------------------- 
 
 # Load secrets 
@@ -101,9 +101,9 @@ discord_bot = commands.Bot(command_prefix="!", intents=intents)
 
 @discord_bot.event 
 async def on_ready(): 
-    from keep_alive import bot_status 
-    bot_status["discord_online"] = True 
-    bot_status["telegram_online"] = True  
+    #from keep_alive import bot_status 
+    #bot_status["discord_online"] = True 
+   # bot_status["telegram_online"] = True  
 
     print(f'Logged in to Discord successfully as: {discord_bot.user.name}') 
     print(f'Total language channels monitored across all categories: {len(ALL_MONITORED_DISCORD_CHANNELS)}')
