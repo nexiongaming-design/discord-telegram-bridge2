@@ -3,18 +3,31 @@ name: Discloud Auto Deploy
 on:
   push:
     branches:
-      - main  # Change this to master if your default branch is named master
-
-permissions:
-  contents: read
+      - main  # Change to master if your default branch is master
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
+
       - name: Deploy to Discloud
         uses: discloud/deploy-action@v1
         with:
           token: ${{ secrets.DISCLOUD_TOKEN }}
+          env: |
+            DISCORD_TOKEN=${{ secrets.DISCORD_TOKEN }}
+            TELEGRAM_TOKEN=${{ secrets.TELEGRAM_TOKEN }}
+            TELEGRAM_GROUP_ID=-100xxxxxx
+
+            HERDS_SOURCE_CHANNEL_ID=code here
+            HERDS_LISTEN_CHANNELS=code here
+            HERDS_TELEGRAM_TOPIC_ID=34
+
+            NOTIF_SOURCE_CHANNEL_ID=code here
+            NOTIF_LISTEN_CHANNELS=code here
+            NOTIF_TELEGRAM_TOPIC_ID=3
+
+            SCHEDULE_SOURCE_CHANNEL_ID=code here
+            SCHEDULE_LISTEN_CHANNELS=code here
+            SCHEDULE_TELEGRAM_TOPIC_ID=149
