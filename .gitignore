@@ -1,0 +1,13 @@
+# Secrets and Environment Variables
+.env
+.env.local
+
+# Python cache files (makes your repository cleaner)
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Operating system junk files
+.DS_Store
+Thumbs.db
